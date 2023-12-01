@@ -1,4 +1,4 @@
-# 🎵🎵🎧 Bienvenue Itune Search 
+# 🎵🎧 Bienvenue Itune Search 
 Cette application vous permet de rechercher vos artistes et morceaux de musique préférés et d'écouter des extraits de leurs œuvres. Que vous soyez fan de pop, rock, jazz, classique ou tout autre genre, notre application offre une expérience d'écoute facile et rapide
 
 
@@ -30,7 +30,7 @@ Cette application vous permet de rechercher vos artistes et morceaux de musique 
 
  - À côté de chaque morceau, vous trouverez un bouton de lecture. Appuyez dessus pour commencer à écouter un extrait du morceau.
  - Lorsqu'un extrait est en cours de lecture, les autres boutons de lecture sont désactivés pour vous permettre de vous concentrer sur un seul morceau à la fois.
-### Profiter de la Musique 🎵🎵🎧 :
+### Profiter de la Musique 🎵🎧 :
 
 - Prenez un moment pour écouter et apprécier l'extrait. Si la chanson vous plaît, vous pouvez la retrouver sur votre plateforme de musique préférée pour l'écouter en entier.
 
