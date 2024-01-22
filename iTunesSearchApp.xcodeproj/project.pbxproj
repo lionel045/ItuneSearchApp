@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B44235D72B5F188900000182 /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44235D62B5F188900000182 /* LikeViewController.swift */; };
+		B44235DA2B5F1A1E00000182 /* LikeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44235D92B5F1A1E00000182 /* LikeViewCell.swift */; };
 		B44842EA2B18D3D000B204E4 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44842E92B18D3D000B204E4 /* AudioPlayerManager.swift */; };
 		B4BFE2A42B17973200BC14DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BFE2A32B17973200BC14DE /* AppDelegate.swift */; };
 		B4BFE2A62B17973200BC14DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BFE2A52B17973200BC14DE /* SceneDelegate.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		B422A6472B19C4D100535755 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B44235D62B5F188900000182 /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
+		B44235D92B5F1A1E00000182 /* LikeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewCell.swift; sourceTree = "<group>"; };
 		B44842E92B18D3D000B204E4 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		B4BFE2A02B17973200BC14DE /* iTunesSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4BFE2A32B17973200BC14DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +59,15 @@
 				B422A6472B19C4D100535755 /* Info.plist */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		B44235D82B5F19B300000182 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B4BFE2BE2B17D4DE00BC14DE /* CustomTableViewCell.swift */,
+				B44235D92B5F1A1E00000182 /* LikeViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B4BFE2972B17973200BC14DE = {
@@ -96,7 +109,7 @@
 		B4BFE2B82B179C7800BC14DE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B4BFE2BE2B17D4DE00BC14DE /* CustomTableViewCell.swift */,
+				B44235D82B5F19B300000182 /* Cell */,
 				B4F6C56F2B18871800577801 /* LoadView.swift */,
 			);
 			path = View;
@@ -107,6 +120,7 @@
 			children = (
 				B4BFE2A92B17973300BC14DE /* Main.storyboard */,
 				B4BFE2A72B17973200BC14DE /* ViewController.swift */,
+				B44235D62B5F188900000182 /* LikeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,9 +200,11 @@
 				B4BFE2A82B17973200BC14DE /* ViewController.swift in Sources */,
 				B4F6C5702B18871800577801 /* LoadView.swift in Sources */,
 				B4BFE2A42B17973200BC14DE /* AppDelegate.swift in Sources */,
+				B44235DA2B5F1A1E00000182 /* LikeViewCell.swift in Sources */,
 				B4BFE2BB2B179F5000BC14DE /* SearchApiRequest.swift in Sources */,
 				B44842EA2B18D3D000B204E4 /* AudioPlayerManager.swift in Sources */,
 				B4BFE2A62B17973200BC14DE /* SceneDelegate.swift in Sources */,
+				B44235D72B5F188900000182 /* LikeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

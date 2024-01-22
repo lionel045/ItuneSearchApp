@@ -14,22 +14,40 @@ class CustomTableViewCell: UITableViewCell {
     var songUrl: URL? 
     var checkStateButton: ((CustomTableViewCell) ->())? //watch the event when the button pushed
 
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
- 
+    
+    
+    
+    
+    @IBAction func likebuttonTapped(_ sender: UIButton) {
+        
+        
+        sender.isSelected = !sender.isSelected
+        sender.setImage(sender.isSelected ? UIImage(named: "heartFill") : UIImage(named: "heart"), for: .normal)
+        sender.backgroundColor = UIColor(named: "defaultColor")
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func playButtonTapped(_ sender: Any) {
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.prepare()
         generator.impactOccurred()
-
         Task {
             do {
                 try await AudioPlayerManager.shared.downloadAndPlayAudio(urlSong: songUrl)
-
-                await MainActor.run {
+               
                     let buttonImageName = AudioPlayerManager.shared.currentUrl == nil ? "playButton" : "pausedButton"
                     playButton.setImage(UIImage(named: buttonImageName), for: .normal)
                     checkStateButton?(self)
-                }
+                
             } catch {
                 print("Erreur lors de la lecture: \(error)")
             }

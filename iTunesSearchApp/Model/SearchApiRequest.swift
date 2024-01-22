@@ -17,28 +17,40 @@ class SearchApiRequest {
     
     static let shared = SearchApiRequest()
     
-    func makeRequest(query: String) async throws -> [Track]? {
+    class SearchApiRequest {
         
-        guard let url = URL(string: "https://itunes.apple.com/search?term=\(query)&media=music&country=US&&limit=25") else {
-            throw URLError(.badURL)
-        }
-        let request = URLRequest(url: url)
-        let (data, response) = try await URLSession.shared.data(for: request)
+        static let shared = SearchApiRequest()
         
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            throw ApiError.invalidResponse
-        }
-        
-        do {
-            let decoder = JSONDecoder()
-            let result = String(decoding: data, as: UTF8.self)
-            print(result)
-            let trackInfo = try  decoder.decode(TrackContainer.self, from: data)
+        func makeRequest(query: String) async throws -> [Track]? {
+            // Validation de l'URL
+            guard let url = URL(string: "https://itunes.apple.com/search?term=\(query)&media=music&country=US&&limit=25") else {
+                throw URLError(.badURL)
+            }
             
-            return trackInfo.results
+            // Préparation de la requête URLRequest
+            let request = URLRequest(url: url)
             
+            do {
+                // Envoi de la requête réseau et attente de la réponse
+                let (data, response) = try await URLSession.shared.data(for: request)
+                
+                // Vérification du code de statut HTTP
+                guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+                    throw ApiError.invalidResponse
+                }
+            
+                // Décodage des données reçues
+                let decoder = JSONDecoder()
+                let trackInfo = try decoder.decode(TrackContainer.self, from: data)
+                return trackInfo.results
+            } catch {
+                // Gestion des erreurs
+                print("Erreur lors de la requête réseau: \(error)")
+                throw error
+            }
         }
     }
+
     
     func downloadImageArtist(urlImage: URL?) async throws  -> UIImage? {
         

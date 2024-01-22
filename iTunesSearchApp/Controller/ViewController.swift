@@ -71,7 +71,6 @@ class ViewController: UIViewController {
 }
          
   
-
 extension ViewController: UISearchBarDelegate {  // Extension to handle SearchTab behaviour
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
