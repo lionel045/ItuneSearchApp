@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		B44235D72B5F188900000182 /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44235D62B5F188900000182 /* LikeViewController.swift */; };
 		B44235DA2B5F1A1E00000182 /* LikeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44235D92B5F1A1E00000182 /* LikeViewCell.swift */; };
+		B44235DD2B5F2FA000000182 /* Song.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B44235DB2B5F2FA000000182 /* Song.xcdatamodeld */; };
+		B44235DF2B5F303900000182 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44235DE2B5F303900000182 /* Song.swift */; };
+		B44235E12B5F308700000182 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44235E02B5F308700000182 /* CoreDataStack.swift */; };
+		B44235E32B5F323100000182 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44235E22B5F323100000182 /* SongRepository.swift */; };
 		B44842EA2B18D3D000B204E4 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44842E92B18D3D000B204E4 /* AudioPlayerManager.swift */; };
 		B4BFE2A42B17973200BC14DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BFE2A32B17973200BC14DE /* AppDelegate.swift */; };
 		B4BFE2A62B17973200BC14DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BFE2A52B17973200BC14DE /* SceneDelegate.swift */; };
@@ -25,6 +29,10 @@
 		B422A6472B19C4D100535755 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B44235D62B5F188900000182 /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 		B44235D92B5F1A1E00000182 /* LikeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewCell.swift; sourceTree = "<group>"; };
+		B44235DC2B5F2FA000000182 /* Song.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Song.xcdatamodel; sourceTree = "<group>"; };
+		B44235DE2B5F303900000182 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		B44235E02B5F308700000182 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B44235E22B5F323100000182 /* SongRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
 		B44842E92B18D3D000B204E4 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		B4BFE2A02B17973200BC14DE /* iTunesSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4BFE2A32B17973200BC14DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +110,10 @@
 			children = (
 				B4BFE2BA2B179F5000BC14DE /* SearchApiRequest.swift */,
 				B44842E92B18D3D000B204E4 /* AudioPlayerManager.swift */,
+				B44235DB2B5F2FA000000182 /* Song.xcdatamodeld */,
+				B44235DE2B5F303900000182 /* Song.swift */,
+				B44235E02B5F308700000182 /* CoreDataStack.swift */,
+				B44235E22B5F323100000182 /* SongRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,11 +211,15 @@
 				B4BFE2BF2B17D4DE00BC14DE /* CustomTableViewCell.swift in Sources */,
 				B4BFE2A82B17973200BC14DE /* ViewController.swift in Sources */,
 				B4F6C5702B18871800577801 /* LoadView.swift in Sources */,
+				B44235E12B5F308700000182 /* CoreDataStack.swift in Sources */,
 				B4BFE2A42B17973200BC14DE /* AppDelegate.swift in Sources */,
 				B44235DA2B5F1A1E00000182 /* LikeViewCell.swift in Sources */,
+				B44235DF2B5F303900000182 /* Song.swift in Sources */,
+				B44235E32B5F323100000182 /* SongRepository.swift in Sources */,
 				B4BFE2BB2B179F5000BC14DE /* SearchApiRequest.swift in Sources */,
 				B44842EA2B18D3D000B204E4 /* AudioPlayerManager.swift in Sources */,
 				B4BFE2A62B17973200BC14DE /* SceneDelegate.swift in Sources */,
+				B44235DD2B5F2FA000000182 /* Song.xcdatamodeld in Sources */,
 				B44235D72B5F188900000182 /* LikeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +444,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B44235DB2B5F2FA000000182 /* Song.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B44235DC2B5F2FA000000182 /* Song.xcdatamodel */,
+			);
+			currentVersion = B44235DC2B5F2FA000000182 /* Song.xcdatamodel */;
+			path = Song.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B4BFE2982B17973200BC14DE /* Project object */;
 }

@@ -13,27 +13,28 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var songLabel: UILabel!
     var songUrl: URL? 
     var checkStateButton: ((CustomTableViewCell) ->())? //watch the event when the button pushed
-
+    var callBack: ((SongRepository) ->Void)?
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
-    
+    var songRepo = SongRepository()
     
     
     
     @IBAction func likebuttonTapped(_ sender: UIButton) {
         
-        
         sender.isSelected = !sender.isSelected
-        sender.setImage(sender.isSelected ? UIImage(named: "heartFill") : UIImage(named: "heart"), for: .normal)
-        sender.backgroundColor = UIColor(named: "defaultColor")
+//        sender.setImage(sender.isSelected ? UIImage(named: "heartFill") : UIImage(named: "heart"), for: .normal)
         
+        if sender.isSelected {
+            sender.setImage(UIImage(named: "heartFill"), for: .normal)
+            callBack?(songRepo)
+        } else {
+            sender.setImage(UIImage(named: "heart"), for: .normal)
+        }
+        
+        sender.backgroundColor = UIColor(named: "defaultColor")
+//        songRepo.saveSong(image: imageViewCell.image, artistName: artistLabel.text ?? "", title: songLabel.text ?? "")
     }
-    
-    
-    
-    
-    
-    
     
     
     @IBAction func playButtonTapped(_ sender: Any) {

@@ -119,15 +119,27 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let trackInfo = trackData[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
+
+        // Configuration du contenu de la cellule
         cell.artistLabel.text = trackInfo.artistName
         cell.songLabel.text = trackInfo.trackName
         cell.imageViewCell.image = nil
         cell.songUrl = trackInfo.previewUrl
+
+        // Réinitialiser l'état du bouton de lecture
+        cell.playButton.setImage(UIImage(named: "playButton"), for: .normal)
+
+        // Configuration du callBack pour la sauvegarde des chansons
+        cell.callBack = { [weak self] songRepo in
+            guard self != nil else { return }
+            songRepo.saveSong(image: cell.imageViewCell.image, artistName: cell.artistLabel.text, title: cell.songLabel.text)
+        }
+
+        // Gestion de l'état de sélection des boutons de lecture dans les autres cellules
         cell.checkStateButton = { [weak self] tappedCell in
             guard let strongSelf = self else { return }
-            //Unselect button if not push
             for cell in strongSelf.resultTableView.visibleCells {
-                guard let customCell = cell as? CustomTableViewCell, customCell != tappedCell else { return }
+                guard let customCell = cell as? CustomTableViewCell, customCell != tappedCell else { continue }
                 customCell.playButton.setImage(UIImage(named: "playButton"), for: .normal)
             }
         }
@@ -142,8 +154,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                         cell.imageViewCell.image = image
                         cell.playButton.setImage(UIImage(named: "playButton"), for: .normal)
                     }
-                    
-                    
                 }
                 //Handle error
             } catch ApiError.invalidResponse {
