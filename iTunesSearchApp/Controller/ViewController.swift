@@ -146,16 +146,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.checkStateButton = { [weak self] tappedCell in
             guard let strongSelf = self, let indexPath = tableView.indexPath(for: tappedCell) else { return }
-            strongSelf.trackData[indexPath.row].isPlayed = tappedCell.tapped
             let playButtonImageName = tappedCell.tapped ? "pause.circle.fill" : "play.circle.fill"
+            let wasPlaying =  strongSelf.trackData[indexPath.row].isPlayed
+            strongSelf.trackData[indexPath.row].isPlayed = !(wasPlaying ?? false)
             tappedCell.playButton.setImage(UIImage(systemName: playButtonImageName, withConfiguration: symbolConfiguration), for: .normal)
-        
-                     // Si nécessaire, rafraîchir la cellule
-//            for cell in strongSelf.resultTableView.visibleCells {
-//                guard let customCell = cell as? CustomTableViewCell, customCell != tappedCell else { continue }
-////                customCell.playButton.setImage(UIImage(named: "playButton"), for: .normal)
-//            }
-        }
+       
+                for (index, _) in strongSelf.trackData.enumerated() {
+                    if index != indexPath.row {
+                        strongSelf.trackData[index].isPlayed = false
+                    }
+                }
+
+                strongSelf.resultTableView.reloadData()
+            
+                    }
         
         Task {
             do {

@@ -18,7 +18,7 @@ class LikeViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
-          getSong() // Recharger les chansons chaque fois que la vue apparaît
+          getSong() 
       }
     
     private func getSong() {
