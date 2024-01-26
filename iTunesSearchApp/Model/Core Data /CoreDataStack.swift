@@ -14,6 +14,8 @@ final class CoreDataStack {
     
     static let sharedInstance = CoreDataStack()
     
+    private init() {}
+    
     private let persistantContainerName = "Song"
 
     var viewContext: NSManagedObjectContext {

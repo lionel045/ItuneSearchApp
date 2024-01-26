@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     private var loadingView: LoadView!
     @IBOutlet weak var resultTableView: UITableView!
     var trackData = [Track]()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
@@ -69,8 +71,7 @@ class ViewController: UIViewController {
         ])
     }
 }
-         
-  
+
 extension ViewController: UISearchBarDelegate {  // Extension to handle SearchTab behaviour
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -88,7 +89,7 @@ extension ViewController: UISearchBarDelegate {  // Extension to handle SearchTa
                     guard let results = try await SearchApiRequest.shared.makeRequest(query: searchText) else { return }
                     if results.isEmpty {
                         self.showErrorAlert(message: "No result found")
-
+                        
                     }
                     await MainActor.run {
                         self.trackData = results
@@ -126,33 +127,43 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.imageViewCell.image = nil
         cell.songUrl = trackInfo.previewUrl
 
-        // Réinitialiser l'état du bouton de lecture
-        cell.playButton.setImage(UIImage(named: "playButton"), for: .normal)
+        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 24, weight: .medium, scale: .large)
 
-        // Configuration du callBack pour la sauvegarde des chansons
-        cell.callBack = { [weak self] songRepo in
-            guard self != nil else { return }
-            songRepo.saveSong(image: cell.imageViewCell.image, artistName: cell.artistLabel.text, title: cell.songLabel.text)
+        // Configurer l'état initial des boutons
+        let likeButtonImageName = trackInfo.isLiked ?? false ? "heart.fill" : "heart"
+        let playButtonImageName = trackInfo.isPlayed ?? false ? "pause.circle.fill" : "play.circle.fill"
+        cell.likeButton.setImage(UIImage(systemName: likeButtonImageName, withConfiguration: symbolConfiguration), for: .normal)
+        cell.playButton.setImage(UIImage(systemName: playButtonImageName, withConfiguration: symbolConfiguration), for: .normal)
+
+        cell.callBack = { [weak self] currentState in
+            guard let strongSelf = self, let indexPath = tableView.indexPath(for: cell) else { return }
+            strongSelf.trackData[indexPath.row].isLiked = currentState
+            let buttonImageName = currentState ? "heart.fill" : "heart"
+            cell.likeButton.setImage(UIImage(systemName: buttonImageName, withConfiguration: symbolConfiguration), for: .normal)
+            let songRepo = SongRepository()
+            currentState ? songRepo.saveSong(image: cell.imageViewCell.image, artistName: cell.artistLabel.text, title: cell.songLabel.text) : songRepo.deleteSong(withTitle: cell.songLabel.text ?? "")
         }
 
-        // Gestion de l'état de sélection des boutons de lecture dans les autres cellules
         cell.checkStateButton = { [weak self] tappedCell in
-            guard let strongSelf = self else { return }
-            for cell in strongSelf.resultTableView.visibleCells {
-                guard let customCell = cell as? CustomTableViewCell, customCell != tappedCell else { continue }
-                customCell.playButton.setImage(UIImage(named: "playButton"), for: .normal)
-            }
+            guard let strongSelf = self, let indexPath = tableView.indexPath(for: tappedCell) else { return }
+            strongSelf.trackData[indexPath.row].isPlayed = tappedCell.tapped
+            let playButtonImageName = tappedCell.tapped ? "pause.circle.fill" : "play.circle.fill"
+            tappedCell.playButton.setImage(UIImage(systemName: playButtonImageName, withConfiguration: symbolConfiguration), for: .normal)
+        
+                     // Si nécessaire, rafraîchir la cellule
+//            for cell in strongSelf.resultTableView.visibleCells {
+//                guard let customCell = cell as? CustomTableViewCell, customCell != tappedCell else { continue }
+////                customCell.playButton.setImage(UIImage(named: "playButton"), for: .normal)
+//            }
         }
-
+        
         Task {
             do {
                 let image = try await SearchApiRequest().downloadImageArtist(urlImage: trackInfo.artworkUrl60)
                 
                 await MainActor.run {
                     if tableView.cellForRow(at: indexPath) == cell {
-                        
                         cell.imageViewCell.image = image
-                        cell.playButton.setImage(UIImage(named: "playButton"), for: .normal)
                     }
                 }
                 //Handle error

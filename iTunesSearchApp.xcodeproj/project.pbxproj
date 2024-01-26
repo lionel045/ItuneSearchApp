@@ -78,6 +78,17 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		B45AF6B52B6122CF00AC760D /* Core Data  */ = {
+			isa = PBXGroup;
+			children = (
+				B44235E02B5F308700000182 /* CoreDataStack.swift */,
+				B44235E22B5F323100000182 /* SongRepository.swift */,
+				B44235DE2B5F303900000182 /* Song.swift */,
+				B44235DB2B5F2FA000000182 /* Song.xcdatamodeld */,
+			);
+			path = "Core Data ";
+			sourceTree = "<group>";
+		};
 		B4BFE2972B17973200BC14DE = {
 			isa = PBXGroup;
 			children = (
@@ -108,12 +119,9 @@
 		B4BFE2B72B179C5800BC14DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B45AF6B52B6122CF00AC760D /* Core Data  */,
 				B4BFE2BA2B179F5000BC14DE /* SearchApiRequest.swift */,
 				B44842E92B18D3D000B204E4 /* AudioPlayerManager.swift */,
-				B44235DB2B5F2FA000000182 /* Song.xcdatamodeld */,
-				B44235DE2B5F303900000182 /* Song.swift */,
-				B44235E02B5F308700000182 /* CoreDataStack.swift */,
-				B44235E22B5F323100000182 /* SongRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

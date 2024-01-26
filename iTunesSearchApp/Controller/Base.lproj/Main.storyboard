@@ -3,6 +3,7 @@
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logolol" translatesAutoresizingMaskIntoConstraints="NO" id="x2k-Tc-dpN">
-                                <rect key="frame" x="18.666666666666742" y="266" width="389" height="394"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logolol" translatesAutoresizingMaskIntoConstraints="NO" id="x2k-Tc-dpN">
+                                <rect key="frame" x="18.666666666666657" y="266" width="389" height="394"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="394" id="L2p-48-8kf"/>
                                     <constraint firstAttribute="width" constant="389" id="ZYi-g0-1Hz"/>
@@ -28,11 +29,16 @@
                         <viewLayoutGuide key="safeArea" id="2ne-bx-Djm"/>
                         <color key="backgroundColor" name="defaultColor"/>
                         <constraints>
-                            <constraint firstItem="x2k-Tc-dpN" firstAttribute="centerX" secondItem="yJA-yu-7Vc" secondAttribute="centerX" constant="-2" id="TdB-QI-8FT"/>
-                            <constraint firstItem="x2k-Tc-dpN" firstAttribute="centerY" secondItem="yJA-yu-7Vc" secondAttribute="centerY" id="emg-j5-ubx"/>
+                            <constraint firstItem="x2k-Tc-dpN" firstAttribute="centerX" secondItem="yJA-yu-7Vc" secondAttribute="centerX" constant="-0.83333333333325754" id="TdB-QI-8FT"/>
+                            <constraint firstItem="x2k-Tc-dpN" firstAttribute="centerY" secondItem="yJA-yu-7Vc" secondAttribute="centerY" constant="41.5" id="emg-j5-ubx"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="sRr-bO-bqz"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="sRr-bO-bqz">
+                        <imageReference key="image" image="house.fill" catalog="system" symbolScale="medium" variableValue="1"/>
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageReference key="selectedImage" image="house" catalog="system" symbolScale="medium" variableValue="1"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="njQ-iJ-AUf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abS-ag-ms0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -68,7 +74,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8vh-lA-I14">
-                                                    <rect key="frame" x="101.00000000000001" y="15.666666666666664" width="231.33333333333337" height="24"/>
+                                                    <rect key="frame" x="101" y="15.666666666666664" width="233" height="24"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFe-Ih-462">
                                                             <rect key="frame" x="0.0" y="0.0" width="24.333333333333332" height="11"/>
@@ -87,8 +93,8 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="dZZ-fx-UCh"/>
                                                     </constraints>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="P3L-wM-RKM">
-                                                    <rect key="frame" x="338.33333333333331" y="23" width="90.666666666666686" height="47"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="P3L-wM-RKM">
+                                                    <rect key="frame" x="340" y="23" width="89" height="47"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcU-vb-tXS" userLabel="like">
                                                             <rect key="frame" x="0.0" y="9.6666666666666643" width="35" height="28"/>
@@ -96,21 +102,39 @@
                                                                 <constraint firstAttribute="width" constant="35" id="NAt-B7-x7w"/>
                                                                 <constraint firstAttribute="height" constant="28" id="hyO-bG-UFi"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" image="heart">
-                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="medium"/>
+                                                            <state key="normal">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="small" weight="medium"/>
                                                             </state>
+                                                            <buttonConfiguration key="configuration" style="filled">
+                                                                <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                                <backgroundConfiguration key="background">
+                                                                    <color key="backgroundColor" red="0.035283882170000003" green="0.062747418880000003" blue="0.12548708920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </backgroundConfiguration>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25" scale="small" weight="medium"/>
+                                                                <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </buttonConfiguration>
                                                             <connections>
                                                                 <action selector="likebuttonTapped:" destination="uL8-qo-Bfg" eventType="touchUpInside" id="w04-30-ZgC"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ic-iG-n8A">
-                                                            <rect key="frame" x="54" y="7.6666666666666679" width="36.666666666666657" height="32"/>
+                                                            <rect key="frame" x="54" y="0.0" width="35" height="47"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" image="playButton">
+                                                            <state key="normal" image="play.circle.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="medium"/>
                                                             </state>
+                                                            <buttonConfiguration key="configuration" style="plain">
+                                                                <imageReference key="image" image="paus" symbolScale="large"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="27" weight="medium"/>
+                                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </buttonConfiguration>
                                                             <connections>
                                                                 <action selector="playButtonTapped:" destination="uL8-qo-Bfg" eventType="touchUpInside" id="Yve-hG-iay"/>
                                                             </connections>
@@ -151,8 +175,11 @@
                             <constraint firstAttribute="bottom" secondItem="ewe-1s-tvg" secondAttribute="bottom" constant="-154" id="e4H-Vn-uNi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="search" id="Zy1-KI-C1o">
+                    <tabBarItem key="tabBarItem" title="Search" id="Zy1-KI-C1o">
+                        <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large" variableValue="1"/>
                         <color key="badgeColor" red="0.035283882170000003" green="0.062747418880000003" blue="0.12548708920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <imageReference key="selectedImage" image="magnifyingglass" catalog="system" symbolScale="large" variableValue="1"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="resultTableView" destination="ewe-1s-tvg" id="jlq-Wx-yhT"/>
@@ -162,7 +189,7 @@
             </objects>
             <point key="canvasLocation" x="2444.8598130841119" y="-146.43628509719224"/>
         </scene>
-        <!--Like-->
+        <!--Home-->
         <scene sceneID="dIT-UG-0Gm">
             <objects>
                 <viewController id="Ox7-Up-Sjg" customClass="LikeViewController" customModule="iTunesSearchApp" sceneMemberID="viewController">
@@ -181,24 +208,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="141"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LPs-6t-TOE">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LPs-6t-TOE">
                                                     <rect key="frame" x="23" y="0.0" width="89" height="92"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="89" id="Hxk-QI-iGy"/>
-                                                        <constraint firstAttribute="height" constant="103" id="pVD-GF-cE0"/>
+                                                        <constraint firstAttribute="height" constant="92" id="pVD-GF-cE0"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7oY-v4-tLJ">
-                                                    <rect key="frame" x="131" y="21" width="185" height="25"/>
+                                                    <rect key="frame" x="131" y="21" width="105" height="25"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artist" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwQ-Ua-mAQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="185" height="11"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="105" height="11"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTM-hI-ZhM">
-                                                            <rect key="frame" x="0.0" y="14" width="185" height="11"/>
+                                                            <rect key="frame" x="0.0" y="14" width="105" height="11"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -208,14 +235,24 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="105" id="thP-ae-1oJ"/>
                                                     </constraints>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTG-6A-huV">
-                                                    <rect key="frame" x="378" y="20" width="30" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTG-6A-huV">
+                                                    <rect key="frame" x="298" y="20" width="110" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="qPQ-D2-6Mi"/>
-                                                        <constraint firstAttribute="width" constant="30" id="ry7-kl-ano"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="ry7-kl-ano"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="heartFill"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <size key="titleShadowOffset" width="16" height="-2"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large" variableValue="1"/>
+                                                    </state>
+                                                    <buttonConfiguration key="configuration" style="plain" title="">
+                                                        <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large" variableValue="1"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
                                                     <connections>
                                                         <action selector="dislikeTapped:" destination="gVi-Eh-MPW" eventType="touchUpInside" id="hIU-xw-0yc"/>
                                                     </connections>
@@ -264,7 +301,11 @@
                             <constraint firstItem="L3Q-qO-etB" firstAttribute="leading" secondItem="VPx-b3-1Nh" secondAttribute="leading" id="s8S-Ft-4bZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Like" image="heart" selectedImage="heartFill" id="0K2-9K-Ye8"/>
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="heartFill" id="0K2-9K-Ye8">
+                        <imageReference key="image" image="heart" catalog="system" symbolScale="large" variableValue="1"/>
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="2" maxX="0.0" maxY="-1"/>
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableLike" destination="L3Q-qO-etB" id="2dd-33-bHp"/>
                     </connections>
@@ -279,7 +320,8 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="k2D-Dt-h1w" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ceM-T5-Z7T"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="42K-xW-PBl">
+                    <tabBar key="tabBar" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="fill" id="42K-xW-PBl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.035283882170000003" green="0.062747418880000003" blue="0.12548708920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -298,12 +340,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart" width="32" height="32"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="heartFill" width="32" height="32"/>
-        <image name="home" width="32" height="32"/>
+        <image name="house" catalog="system" width="128" height="104"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="logolol" width="500" height="500"/>
-        <image name="playButton" width="32" height="32"/>
-        <image name="search" width="32" height="32"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="paus" width="128" height="128"/>
+        <image name="play.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="defaultColor">
             <color red="0.035000000149011612" green="0.063000001013278961" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

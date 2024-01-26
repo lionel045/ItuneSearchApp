@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct TrackState {
+    var isLiked: Bool
+    var isPlaying: Bool
+}

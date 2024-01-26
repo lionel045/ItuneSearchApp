@@ -70,8 +70,6 @@ class SearchApiRequest {
     }
 }
     
-
-
 struct Track: Codable {
     var wrapperType: String?
     var kind: String?
@@ -104,6 +102,9 @@ struct Track: Codable {
     var currency: String?
     var primaryGenreName: String?
     var isStreamable: Bool?
+    var isLiked: Bool?
+    var isPlayed: Bool?
+
 }
 
 struct TrackContainer: Codable {
