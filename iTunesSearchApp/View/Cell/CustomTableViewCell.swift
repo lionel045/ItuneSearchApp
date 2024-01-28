@@ -21,7 +21,6 @@ class CustomTableViewCell: UITableViewCell {
     var tapped = false
     
 
-    
     @IBAction func likebuttonTapped(_ sender: UIButton) {
         likeButton.isSelected = !likeButton.isSelected
         callBack?(likeButton.isSelected)

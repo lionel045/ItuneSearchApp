@@ -156,8 +156,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                         strongSelf.trackData[index].isPlayed = false
                     }
                 }
-
-                strongSelf.resultTableView.reloadData()
+                   strongSelf.resultTableView.reloadData()
             
                     }
         
